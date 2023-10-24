@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Songstr</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        padding: 50px;
+        background-color: #ececec;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .media-content {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #f1f1f1;
+        padding-bottom: 20px;
+      }
+      .media-content img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+      .listen,
+      .buy,
+      .customize {
+        margin-bottom: 30px;
+      }
+      .listen a,
+      .buy a {
+        display: inline-block;
+        background-color: #333;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #fff;
+        transition: background-color 0.3s ease;
+      }
+      .listen a:hover,
+      .buy a:hover {
+        background-color: #555;
+      }
+      .customize ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .customize ul li {
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+      }
+      .customize ul li i {
+        margin-right: 10px;
+        color: #ff5252;
+      }
+      button {
+        background-color: #ff5252;
+        border: none;
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+      }
+      button:hover {
+        background-color: #ff7676;
+      }
+    </style>
+    <script type="application/ld+json" id="songData">
+      {
+        "@context": "http://schema.org/",
+        "@type": "MusicRecording",
+        "name": "Sinbad",
+        "byArtist": {
+          "@type": "MusicGroup",
+          "name": "Weldon Irvine"
+        },
+        "image": "URL_OF_ALBUM_ARTWORK",
+        "url": {
+          "YouTube": "#",
+          "AppleMusic": "#",
+          "iTunes": "#",
+          "Amazon": "#"
+        }
+      }
+    </script>
+
+    <script type="module">
+      // Get data from structured data island
+      const songDataEl = document.getElementById('songData')
+      const songData = JSON.parse(songDataEl.textContent)
+
+      // Populate page elements using JavaScript
+      window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('albumArt').src = songData.image
+        document.getElementById('songTitle').innerText = songData.name
+        document.getElementById('artistName').innerText = songData.byArtist.name
+        document.getElementById('linkYouTube').href = songData.url.YouTube
+        document.getElementById('linkAppleMusic').href = songData.url.AppleMusic
+        document.getElementById('linkiTunes').href = songData.url.iTunes
+        document.getElementById('linkAmazon').href = songData.url.Amazon
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="media-content">
+        <img id="albumArt" alt="Song Album Art" />
+        <div>
+          <h2 id="songTitle"></h2>
+          <p id="artistName"></p>
+        </div>
+      </div>
+      <div class="listen">
+        <h3>Listen on</h3>
+        <a id="linkYouTube" href="#"><i class="fab fa-youtube"></i> YouTube</a>
+        <a id="linkAppleMusic" href="#"
+          ><i class="fab fa-apple"></i> Apple Music</a
+        >
+        <!-- ... Add other services similarly ... -->
+      </div>
+      <div class="buy">
+        <h3>Buy on</h3>
+        <a id="linkiTunes" href="#"
+          ><i class="fab fa-itunes-note"></i> iTunes</a
+        >
+        <a id="linkAmazon" href="#"><i class="fab fa-amazon"></i> Amazon</a>
+      </div>
+      <div class="customize">
+        <h3>Edit and customize this page</h3>
+        <ul>
+          <li>
+            <i class="fas fa-ticket-alt"></i>Add links for tickets, merch or
+            anything
+          </li>
+          <li><i class="fas fa-link"></i>Customize the URL using domains</li>
+          <li>
+            <i class="fas fa-sync-alt"></i>Easily update all streaming links
+            with each new release
+          </li>
+        </ul>
+        <button>Customize</button>
+        <button>Create new</button>
+      </div>
+    </div>
+  </body>
+</html>
