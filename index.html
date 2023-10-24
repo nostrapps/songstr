@@ -113,11 +113,14 @@
       async function fetchSongData() {
         const params = new URLSearchParams(window.location.search)
         const dataURL = params.get('uri')
+        console.log(dataURL)
         if (dataURL) {
           try {
             const response = await fetch(dataURL)
             if (response.ok) {
-              return await response.json()
+              let data = await response.json()
+              console.log(data)
+              return data
             }
           } catch (err) {
             console.warn(
@@ -142,8 +145,9 @@
       // Songstr Component
       function Songstr(props) {
         // Get data from structured data island
-        const songDataEl = document.getElementById('songData')
-        const songData = JSON.parse(songDataEl.textContent)
+        // const songDataEl = document.getElementById('songData')
+        // const songData = JSON.parse(songDataEl.textContent)
+        const songData = props.songData
 
         return html`
           <style>
@@ -168,13 +172,15 @@
               >
             </div>
             <div class="buy">
-              <h3>Buy on</h3>
-              <a href="${songData.url.iTunes}" class="disabled"
-                ><i class="fab fa-itunes-note"></i> iTunes</a
-              >
-              <a href="${songData.url.Amazon}" class="disabled"
-                ><i class="fab fa-amazon"></i> Amazon</a
-              >
+              <div class="buy">
+                <h3>Buy on</h3>
+                <a href="${songData.url.Tidal}" class="disabled">
+                  <i class="fab fab fa-itunes-note"></i> Tidal
+                </a>
+                <a href="${songData.url.Amazon}" class="disabled">
+                  <i class="fab fa-amazon"></i> Amazon
+                </a>
+              </div>
             </div>
             <div class="customize">
               <h3>Edit and customize this page</h3>
@@ -202,6 +208,7 @@
       // Render the Songstr component when the document is ready
       window.addEventListener('DOMContentLoaded', async () => {
         const songData = await fetchSongData()
+        console.log(songData)
         render(html`<${Songstr} songData=${songData} />`, document.body)
       })
     </script>
