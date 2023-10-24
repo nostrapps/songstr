@@ -106,6 +106,26 @@
     <script type="module">
       import { html, render } from './js/standalone.module.js'
 
+      async function fetchSongData() {
+        const params = new URLSearchParams(window.location.search)
+        const dataURL = params.get('uri')
+        if (dataURL) {
+          try {
+            const response = await fetch(dataURL)
+            if (response.ok) {
+              return await response.json()
+            }
+          } catch (err) {
+            console.warn(
+              'Failed to fetch from provided URL, falling back to data island.',
+              err
+            )
+          }
+        }
+        const songDataEl = document.getElementById('songData')
+        return JSON.parse(songDataEl.textContent)
+      }
+
       // Style
       const styles = `
             body {
@@ -175,8 +195,9 @@
       }
 
       // Render the Songstr component when the document is ready
-      window.addEventListener('DOMContentLoaded', () => {
-        render(html`<${Songstr} />`, document.body)
+      window.addEventListener('DOMContentLoaded', async () => {
+        const songData = await fetchSongData()
+        render(html`<${Songstr} songData=${songData} />`, document.body)
       })
     </script>
   </head>
