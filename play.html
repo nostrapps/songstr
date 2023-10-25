@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Playlist Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black text-gray-300 min-h-screen p-10">
+    <!-- header -->
+    <div class="flex">
+      <img class="mr-6" src="https://placekitten.com/g/200/200" />
+      <div class="flex flex-col justify-center">
+        <!-- content -->
+        <h4 class="mt-0 mb-2 uppercase text-gray-500 tracking-widest text-xs">
+          Playlist
+        </h4>
+        <h1 class="mt-0 mb-2 text-white text-4xl">Songst Playlists</h1>
+
+        <p class="text-gray-600 mb-2 text-sm">
+          A collection of my favorite songs
+        </p>
+        <p class="text-gray-600 text-sm">
+          Created by <a href="#">Me</a> - 3 songs
+        </p>
+      </div>
+    </div>
+
+    <!-- action buttons -->
+    <div class="mt-6 flex justify-between">
+      <div class="flex">
+        <button
+          class="mr-2 bg-green-500 text-green-100 block py-2 px-8 rounded-full"
+        >
+          Play
+        </button>
+        <button class="mr-2 border border-white block p-2 rounded-full">
+          <img
+            src="https://image.flaticon.com/icons/svg/2485/2485986.svg"
+            height="25"
+            width="25"
+          />
+        </button>
+        <button class="mr-2 border border-white block p-2 rounded-full">
+          ...
+        </button>
+      </div>
+      <div class="text-gray-600 text-sm tracking-widest text-right">
+        <h5 class="mb-1">Followers</h5>
+        <p>5,055</p>
+      </div>
+    </div>
+
+    <!-- song list   -->
+    <div class="mt-10">
+      <!-- song list header -->
+      <div class="flex text-gray-600">
+        <div class="p-2 w-8 flex-shrink-0"></div>
+        <div class="p-2 w-8 flex-shrink-0"></div>
+        <div class="p-2 w-full">Title</div>
+        <div class="p-2 w-full">Artist</div>
+        <div class="p-2 w-full">Album</div>
+        <div class="p-2 w-12 flex-shrink-0 text-right">⏱</div>
+      </div>
+
+      <!-- song list items -->
+      <a
+        href="https://nostrapps.github.io/songstr/"
+        class="flex border-b border-gray-800 hover:bg-gray-800"
+      >
+        <div class="p-3 w-8 flex-shrink-0">▶️</div>
+        <div class="p-3 w-8 flex-shrink-0">❤️</div>
+        <div class="p-3 w-full">Don't You Worry 'Bout a Thing</div>
+        <div class="p-3 w-full">Weldon Irvine</div>
+        <div class="p-3 w-full">-</div>
+        <div class="p-3 w-12 flex-shrink-0 text-right">-</div>
+      </a>
+      <a
+        href="https://nostrapps.github.io/songstr/?uri=https://nosdav.net/de7ecd1e2976a6adb2ffa5f4db81a7d812c8bb6698aa00dcf1e76adb55efd645/songstr/a8aa186d-21a8-44f3-a9a8-2a3d0f58e8c6.json"
+        class="flex border-b border-gray-800 hover:bg-gray-800"
+      >
+        <div class="p-3 w-8 flex-shrink-0">▶️</div>
+        <div class="p-3 w-8 flex-shrink-0">❤️</div>
+        <div class="p-3 w-full">Maggot Brain</div>
+        <div class="p-3 w-full">Funkadelic</div>
+        <div class="p-3 w-full">-</div>
+        <div class="p-3 w-12 flex-shrink-0 text-right">-</div>
+      </a>
+      <a
+        href="https://nostrapps.github.io/songstr/?uri=https://nosdav.net/de7ecd1e2976a6adb2ffa5f4db81a7d812c8bb6698aa00dcf1e76adb55efd645/songstr/438ece72-e9be-4308-8f35-f41e5d97fded.json"
+        class="flex border-b border-gray-800 hover:bg-gray-800"
+      >
+        <div class="p-3 w-8 flex-shrink-0">▶️</div>
+        <div class="p-3 w-8 flex-shrink-0">❤️</div>
+        <div class="p-3 w-full">The Wilhelm Scream</div>
+        <div class="p-3 w-full">James Blake</div>
+        <div class="p-3 w-full">-</div>
+        <div class="p-3 w-12 flex-shrink-0 text-right">-</div>
+      </a>
+    </div>
+  </body>
+</html>
